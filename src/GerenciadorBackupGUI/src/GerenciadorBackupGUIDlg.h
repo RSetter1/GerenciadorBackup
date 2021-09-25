@@ -5,10 +5,6 @@ class CGerenciadorBackupGUIDlg : public CDialogEx
 public:
     CGerenciadorBackupGUIDlg(CWnd* pParent = nullptr);
 
-#ifdef AFX_DESIGN_TIME
-    enum { IDD = IDD_GERENCIADORBACKUPGUI_DIALOG };
-#endif
-
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);
 
@@ -20,4 +16,7 @@ protected:
     afx_msg void OnPaint();
     afx_msg HCURSOR OnQueryDragIcon();
     DECLARE_MESSAGE_MAP()
+
+private:
+    enum { IDD = IDD_GERENCIADORBACKUPGUI_DIALOG };
 };

@@ -10,7 +10,7 @@ using _base = CDialogEx; // Usado apenas quando não dá pra usar __super.
 #endif
 
 CGerenciadorBackupGUIDlg::CGerenciadorBackupGUIDlg(CWnd* pParent /*=nullptr*/)
-    : _base(IDD_GERENCIADORBACKUPGUI_DIALOG, pParent)
+    : _base(CGerenciadorBackupGUIDlg::IDD, pParent)
 {
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
