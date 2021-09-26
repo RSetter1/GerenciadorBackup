@@ -10,7 +10,8 @@ using _base = CDialogEx; // Usado apenas quando não dá pra usar __super.
 #endif
 
 CGerenciadorBackupGUIDlg::CGerenciadorBackupGUIDlg(CWnd* pParent /*=nullptr*/)
-    : _base(CGerenciadorBackupGUIDlg::IDD, pParent)
+    : _base            (CGerenciadorBackupGUIDlg::IDD, pParent)
+    , flagQuemAtualizar(EQuemAtualizar::eDestino              )
 {
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -18,12 +19,18 @@ CGerenciadorBackupGUIDlg::CGerenciadorBackupGUIDlg(CWnd* pParent /*=nullptr*/)
 void CGerenciadorBackupGUIDlg::DoDataExchange(CDataExchange* pDX)
 {
     __super::DoDataExchange(pDX);
+
+    DDX_Control(pDX, IDC_EDT_PASTA_ORIGEM , m_edtPastaOrigem  );
+    DDX_Control(pDX, IDC_EDT_PASTA_DESTINO, m_edtPastaDestino );
+    DDX_Control(pDX, IDC_BTN_EFETUARBKP   , m_btnEfetuarBackup);
+    DDX_Control(pDX, IDC_BTN_QUEMATUALIZAR, m_btnQuemAtualizar);
 }
 
 BEGIN_MESSAGE_MAP(CGerenciadorBackupGUIDlg, _base)
-    ON_WM_SYSCOMMAND()
-    ON_WM_PAINT()
-    ON_WM_QUERYDRAGICON()
+    ON_WM_SYSCOMMAND    ()
+    ON_WM_PAINT         ()
+    ON_WM_QUERYDRAGICON ()
+    ON_BN_CLICKED       (IDC_BTN_QUEMATUALIZAR, &CGerenciadorBackupGUIDlg::OnBnClickedBtnQuemAtualizar)
 END_MESSAGE_MAP()
 
 BOOL CGerenciadorBackupGUIDlg::OnInitDialog()
@@ -48,6 +55,15 @@ BOOL CGerenciadorBackupGUIDlg::OnInitDialog()
     }
 
     SetIcon(m_hIcon, TRUE);
+
+    m_edtPastaOrigem .SetCueBanner(TEXT("Informe o diretório de origem" ));
+    m_edtPastaDestino.SetCueBanner(TEXT("Informe o diretório de destino"));
+
+    flagQuemAtualizar = EQuemAtualizar::eDestino;
+    m_btnQuemAtualizar.SetWindowText(TEXT("---->"));
+
+    m_btnEfetuarBackup.SetDirOrigem (m_edtPastaOrigem .GetDiretorio());
+    m_btnEfetuarBackup.SetDirDestino(m_edtPastaDestino.GetDiretorio());
 
     return TRUE;
 }
@@ -91,4 +107,20 @@ void CGerenciadorBackupGUIDlg::OnPaint()
 HCURSOR CGerenciadorBackupGUIDlg::OnQueryDragIcon()
 {
     return static_cast<HCURSOR>(m_hIcon);
+}
+
+void CGerenciadorBackupGUIDlg::OnBnClickedBtnQuemAtualizar()
+{
+    switch (flagQuemAtualizar)
+    {
+        case EQuemAtualizar::eOrigem:
+            flagQuemAtualizar = EQuemAtualizar::eDestino;
+            m_btnQuemAtualizar.SetWindowText(TEXT("---->"));
+            break;
+
+        case EQuemAtualizar::eDestino:
+            flagQuemAtualizar = EQuemAtualizar::eOrigem;
+            m_btnQuemAtualizar.SetWindowText(TEXT("<----"));
+            break;
+    }
 }

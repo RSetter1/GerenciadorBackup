@@ -8,9 +8,15 @@ public:
     CFolderEdit();
     virtual ~CFolderEdit();
 
-protected:
-    DECLARE_MESSAGE_MAP()
+    const CString& GetDiretorio();
 
 private:
+    DECLARE_MESSAGE_MAP()
+
+    afx_msg int  OnCreate       (LPCREATESTRUCT lpCS);
     afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
+    afx_msg void OnEnKillfocus  ();
+
+private:
+    CString m_sDiretorio;
 };

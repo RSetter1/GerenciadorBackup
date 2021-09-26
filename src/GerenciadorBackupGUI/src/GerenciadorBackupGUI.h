@@ -10,6 +10,7 @@ public:
 public:
     virtual BOOL InitInstance();
 
+private:
     DECLARE_MESSAGE_MAP()
 };
 

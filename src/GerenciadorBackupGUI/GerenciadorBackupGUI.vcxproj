@@ -199,6 +199,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\ButtonBackup.h" />
     <ClInclude Include="src\FolderEdit.h" />
     <ClInclude Include="src\AboutDlg.h" />
     <ClInclude Include="src\GerenciadorBackupGUI.h" />
@@ -208,6 +209,7 @@
     <ClInclude Include="src\targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ButtonBackup.cpp" />
     <ClCompile Include="src\FolderEdit.cpp" />
     <ClCompile Include="src\AboutDlg.cpp" />
     <ClCompile Include="src\GerenciadorBackupGUI.cpp" />

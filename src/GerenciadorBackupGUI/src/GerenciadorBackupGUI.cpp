@@ -18,7 +18,7 @@ CGerenciadorBackupGUIApp theApp;
 
 BOOL CGerenciadorBackupGUIApp::InitInstance()
 {
-    INITCOMMONCONTROLSEX InitCtrls;
+    INITCOMMONCONTROLSEX InitCtrls {};
     InitCtrls.dwSize = sizeof(InitCtrls);
     InitCtrls.dwICC = ICC_WIN95_CLASSES;
     InitCommonControlsEx(&InitCtrls);
@@ -28,17 +28,14 @@ BOOL CGerenciadorBackupGUIApp::InitInstance()
     CShellManager *pShellManager = new CShellManager;
     CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
 
-    ASSERT(FALSE); // alterar registry key
-    SetRegistryKey(_T("Aplicativos Locais Gerados pelo AppWizard"));
+    SetRegistryKey(TEXT("GerenciadorBackupGUI"));
 
     CGerenciadorBackupGUIDlg dlg;
     m_pMainWnd = &dlg;
     dlg.DoModal();
 
     if (pShellManager != nullptr)
-    {
         delete pShellManager;
-    }
 
 #if !defined(_AFXDLL) && !defined(_AFX_NO_MFC_CONTROLS_IN_DIALOGS)
     ControlBarCleanUp();
@@ -46,4 +43,3 @@ BOOL CGerenciadorBackupGUIApp::InitInstance()
 
     return FALSE;
 }
-

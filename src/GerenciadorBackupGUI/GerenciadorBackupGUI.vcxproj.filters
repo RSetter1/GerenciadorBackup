@@ -36,6 +36,9 @@
     <ClInclude Include="src\FolderEdit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\ButtonBackup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GerenciadorBackupGUI.cpp">
@@ -51,6 +54,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\FolderEdit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ButtonBackup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

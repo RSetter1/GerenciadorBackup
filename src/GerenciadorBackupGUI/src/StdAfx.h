@@ -15,6 +15,11 @@
 
 #include "resource.h"
 
+#include "FolderEdit.h"
+#include "ButtonBackup.h"
+
+typedef UCHAR FLAG;
+
 #pragma comment(linker, "/manifestdependency:\" \
     type='win32'                                \
     name='Microsoft.Windows.Common-Controls'    \
