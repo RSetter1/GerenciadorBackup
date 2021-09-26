@@ -19,37 +19,75 @@ const CString& CFolderEdit::GetDiretorio()
 }
 
 BEGIN_MESSAGE_MAP(CFolderEdit, _base)
-    ON_WM_CREATE       ()
     ON_WM_LBUTTONDBLCLK()
     ON_CONTROL_REFLECT (EN_KILLFOCUS, &CFolderEdit::OnEnKillfocus)
 END_MESSAGE_MAP()
-
-int CFolderEdit::OnCreate(LPCREATESTRUCT lpCS)
-{
-    int iReturn = __super::OnCreate(lpCS);
-
-    return iReturn;
-}
 
 void CFolderEdit::OnLButtonDblClk(UINT nFlags, CPoint point)
 {
     __super::OnLButtonDblClk(nFlags, point);
 
-    CFolderPickerDialog dlgPicker;
+    CFolderPickerDialog dlgPicker(L"C:\\");
     INT_PTR iResult = dlgPicker.DoModal();
 
-    if (iResult == IDOK)
-        m_sDiretorio = dlgPicker.GetFolderPath();
+    if (iResult != IDOK)
+        return;
 
-    PostMessage(WM_KILLFOCUS);
+    CString sDir = dlgPicker.GetPathName();
+    sDir.Trim();
+
+    TrataStringDiretorio(sDir);
+
+    SetWindowText(sDir);
+
+    if (ConsisteDiretorio(sDir))
+        m_sDiretorio = sDir;
 }
 
 void CFolderEdit::OnEnKillfocus()
 {
-    // todo: tratar isso aqui direito. se o user digitar nunca vai alterar m_sDiretorio.
+    CString sDir;
+    GetWindowText(sDir);
 
-    if (m_sDiretorio.IsEmpty())
+    sDir.Trim();
+
+    TrataStringDiretorio(sDir);
+
+    SetWindowText(sDir);
+
+    if (ConsisteDiretorio(sDir))
+        m_sDiretorio = sDir;
+}
+
+BOOL CFolderEdit::ConsisteDiretorio(CString& sDir)
+{
+    if (sDir.IsEmpty())
+        return FALSE;
+
+    if (!PathFileExists(sDir))
+    {
+        AfxMessageBox(IDS_INFORME_DIR_VALIDO);
+        SetSel(0, sDir.GetLength());
+        SetFocus();
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+void CFolderEdit::TrataStringDiretorio(CString& sDir)
+{
+    if (sDir.IsEmpty())
         return;
 
-    SetWindowText(m_sDiretorio);
+    sDir.Trim();
+
+    if (sDir.GetLength() && sDir[0] == L'"')
+        sDir.Delete(0, 1);
+
+    if (sDir.GetLength() && sDir[sDir.GetLength() - 1] == L'"')
+        sDir.Delete(sDir.GetLength() - 1, 1);
+
+    if (sDir.GetLength() && sDir[sDir.GetLength() - 1] == L'\\')
+        sDir.Delete(sDir.GetLength() - 1, 1);
 }

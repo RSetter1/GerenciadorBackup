@@ -39,34 +39,35 @@ void CButtonBackup::OnBnClicked()
 
 void CButtonBackup::EfetuaBackup()
 {
-    CString sParametros;
-    sParametros.Format(_T("\"%s\", \"%s\" /mir"), m_psDirOrigem->GetString(), m_psDirDestino->GetString());
+    WCHAR szDirWin32[MAX_PATH] {};
+    GetSystemDirectory(szDirWin32, MAX_PATH);
+
+    CString sCallParametro;
+    sCallParametro.Format(
+        _T("%s\\%s \"%s\" \"%s\" /mir"),
+        szDirWin32                     ,
+        _T("Robocopy.exe")             ,
+        m_psDirOrigem ->GetString()    ,
+        m_psDirDestino->GetString()    
+    );
 
     STARTUPINFO info {};
     info.cb = sizeof(info);
 
     PROCESS_INFORMATION processInfo {};
 
-    CString sDirWin32;
-
-    GetSystemDirectory(sDirWin32.GetBuffer(), MAX_PATH);
-
-    sDirWin32.Format(L"%s", sDirWin32.GetBuffer());
-    sDirWin32.ReleaseBuffer();
-
-    sDirWin32 += L"\\Robocopy.exe";
-
-    BOOL bOK = CreateProcess(sDirWin32.GetString(),
-                             (LPWSTR) sParametros.GetString(),
-                             NULL,
-                             NULL,
-                             TRUE,
-                             0,
-                             NULL,
-                             NULL,
-                             &info,
-                             &processInfo);
-
+    BOOL bOK = CreateProcess(
+        NULL,
+        (LPWSTR) sCallParametro.GetString(),
+        NULL,
+        NULL,
+        TRUE,
+        NORMAL_PRIORITY_CLASS | CREATE_NEW_CONSOLE | CREATE_NEW_PROCESS_GROUP,
+        NULL,
+        NULL,
+        &info,
+        &processInfo
+    );
 
     if (bOK)
     {
@@ -81,18 +82,5 @@ BOOL CButtonBackup::ConsisteDiretorios()
     ASSERT(m_psDirOrigem  != nullptr);
     ASSERT(m_psDirDestino != nullptr);
 
-    bool bPossuiDirOrig = !m_psDirOrigem ->IsEmpty();
-    bool bPossuiDirDest = !m_psDirDestino->IsEmpty();
-
-    if (!bPossuiDirOrig || !bPossuiDirDest)
-    {
-        if (!bPossuiDirOrig)
-            AfxMessageBox(IDS_DIR_ORIG_DEVE_SER_INFORMADO);
-        else
-            AfxMessageBox(IDS_DIR_DEST_DEVE_SER_INFORMADO);
-
-        return FALSE;
-    }
-
-    return TRUE;
+    return (!m_psDirOrigem->IsEmpty() || !m_psDirDestino->IsEmpty());
 }

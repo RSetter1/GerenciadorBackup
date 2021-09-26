@@ -13,9 +13,12 @@ public:
 private:
     DECLARE_MESSAGE_MAP()
 
-    afx_msg int  OnCreate       (LPCREATESTRUCT lpCS);
     afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
     afx_msg void OnEnKillfocus  ();
+
+private:
+    BOOL ConsisteDiretorio   (CString& sDir);
+    void TrataStringDiretorio(CString& sDir);
 
 private:
     CString m_sDiretorio;
