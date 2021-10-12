@@ -15,3 +15,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
   - Header file extensions are now .hpp instead of .h.
+
+[0.0.1]: https://github.com/RSetter1/GerenciadorBackup/releases/tag/v0.0.1
