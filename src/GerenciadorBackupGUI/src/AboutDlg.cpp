@@ -1,6 +1,6 @@
-#include "StdAfx.h"
+#include "StdAfx.hpp"
 
-#include "AboutDlg.h"
+#include "AboutDlg.hpp"
 
 using _base = CDialogEx; // Usado apenas quando não dá pra usar __super.
 

@@ -1,6 +1,6 @@
-#include "StdAfx.h"
-#include "GerenciadorBackupGUI.h"
-#include "GerenciadorBackupGUIDlg.h"
+#include "StdAfx.hpp"
+#include "GerenciadorBackupGUI.hpp"
+#include "GerenciadorBackupGUIDlg.hpp"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

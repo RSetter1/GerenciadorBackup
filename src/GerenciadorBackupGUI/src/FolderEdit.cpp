@@ -1,5 +1,5 @@
-#include "StdAfx.h"
-#include "FolderEdit.h"
+#include "StdAfx.hpp"
+#include "FolderEdit.hpp"
 
 using _base = CEdit; // Usado apenas quando não dá pra usar __super.
 

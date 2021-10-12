@@ -1,7 +1,7 @@
-#include "StdAfx.h"
-#include "GerenciadorBackupGUI.h"
-#include "GerenciadorBackupGUIDlg.h"
-#include "AboutDlg.h"
+#include "StdAfx.hpp"
+#include "GerenciadorBackupGUI.hpp"
+#include "GerenciadorBackupGUIDlg.hpp"
+#include "AboutDlg.hpp"
 
 using _base = CDialogEx; // Usado apenas quando não dá pra usar __super.
 

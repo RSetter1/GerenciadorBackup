@@ -1,7 +1,5 @@
 #pragma once
 
-#include "resource.h"
-
 class CGerenciadorBackupGUIApp : public CWinApp
 {
 public:
@@ -15,3 +13,4 @@ private:
 };
 
 extern CGerenciadorBackupGUIApp theApp;
+

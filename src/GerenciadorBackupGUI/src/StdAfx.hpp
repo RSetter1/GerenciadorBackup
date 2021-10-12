@@ -4,7 +4,7 @@
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS
 #define _AFX_ALL_WARNINGS
 
-#include "targetver.h"
+#include "targetver.hpp"
 
 #include <afxwin.h>
 #include <afxext.h>
@@ -13,10 +13,10 @@
 #include <afxcontrolbars.h>
 #include <afxdialogex.h>
 
-#include "resource.h"
+#include "resource.hpp"
 
-#include "FolderEdit.h"
-#include "ButtonBackup.h"
+#include "FolderEdit.hpp"
+#include "ButtonBackup.hpp"
 
 typedef UCHAR FLAG;
 

@@ -15,28 +15,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\GerenciadorBackupGUI.h">
+    <ClInclude Include="src\GerenciadorBackupGUI.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\GerenciadorBackupGUIDlg.h">
+    <ClInclude Include="src\GerenciadorBackupGUIDlg.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Resource.h">
+    <ClInclude Include="src\Resource.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\StdAfx.h">
+    <ClInclude Include="src\StdAfx.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\targetver.h">
+    <ClInclude Include="src\targetver.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\AboutDlg.h">
+    <ClInclude Include="src\AboutDlg.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\FolderEdit.h">
+    <ClInclude Include="src\FolderEdit.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ButtonBackup.h">
+    <ClInclude Include="src\ButtonBackup.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

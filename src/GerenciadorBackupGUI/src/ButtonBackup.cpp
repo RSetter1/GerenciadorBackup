@@ -1,5 +1,5 @@
-#include "StdAfx.h"
-#include "ButtonBackup.h"
+#include "StdAfx.hpp"
+#include "ButtonBackup.hpp"
 
 using _base = CButton; // Usado apenas quando não dá pra usar __super.
 

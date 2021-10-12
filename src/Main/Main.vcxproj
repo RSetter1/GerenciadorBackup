@@ -207,8 +207,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\resource.h" />
-    <ClInclude Include="src\Main.h" />
+    <ClInclude Include="src\resource.hpp" />
+    <ClInclude Include="src\Main.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp" />
