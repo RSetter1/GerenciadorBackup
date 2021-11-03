@@ -204,8 +204,8 @@
     <ClInclude Include="src\AboutDlg.hpp" />
     <ClInclude Include="src\GerenciadorBackupGUI.hpp" />
     <ClInclude Include="src\GerenciadorBackupGUIDlg.hpp" />
+    <ClInclude Include="src\resource.h" />
     <ClInclude Include="src\StdAfx.hpp" />
-    <ClInclude Include="src\Resource.hpp" />
     <ClInclude Include="src\targetver.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -228,7 +228,11 @@
     <None Include="resources\GerenciadorBackupGUI.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="resources\Add.ico" />
+    <Image Include="resources\Edit.ico" />
     <Image Include="resources\GerenciadorBackupGUI.ico" />
+    <Image Include="resources\icon2.ico" />
+    <Image Include="resources\Remove.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

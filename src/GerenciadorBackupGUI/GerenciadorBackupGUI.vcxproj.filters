@@ -21,9 +21,6 @@
     <ClInclude Include="src\GerenciadorBackupGUIDlg.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Resource.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\StdAfx.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -37,6 +34,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ButtonBackup.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -72,6 +72,18 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\GerenciadorBackupGUI.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Remove.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Add.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Edit.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\icon2.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

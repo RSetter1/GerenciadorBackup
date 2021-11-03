@@ -13,7 +13,7 @@
 #include <afxcontrolbars.h>
 #include <afxdialogex.h>
 
-#include "resource.hpp"
+#include "resource.h"
 
 #include "FolderEdit.hpp"
 #include "ButtonBackup.hpp"
