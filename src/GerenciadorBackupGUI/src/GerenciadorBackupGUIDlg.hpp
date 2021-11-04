@@ -32,8 +32,6 @@ private: // controles
     CButtonBackup m_btnEfetuarBackup;
     CButton       m_btnQuemAtualizar;
 
-
-
     CListCtrl m_listOrigem           ;
     CEdit     m_edtDiretorioOrigem   ;
     CButton   m_btnAddOrigem         ;

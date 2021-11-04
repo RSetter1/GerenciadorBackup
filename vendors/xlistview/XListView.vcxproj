@@ -101,7 +101,7 @@
       <WarningLevel>Level4</WarningLevel>
       <MinimalRebuild>true</MinimalRebuild>
       <DebugInformationFormat>None</DebugInformationFormat>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_INSIDE_XLISTVIEW;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\Debug\XListView.pch</PrecompiledHeaderOutputFile>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -133,8 +133,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ChildFrm.cpp" />
-    <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="StdAfx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx.h</PrecompiledHeaderFile>
@@ -145,15 +143,11 @@
     <ClCompile Include="XHeaderCtrl.cpp" />
     <ClCompile Include="XListCtrl.cpp" />
     <ClCompile Include="XListView.cpp" />
-    <ClCompile Include="XListViewDoc.cpp" />
-    <ClCompile Include="XListViewView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="XListView.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ChildFrm.h" />
-    <ClInclude Include="MainFrm.h" />
     <ClInclude Include="MemDC.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="StdAfx.h" />
@@ -161,8 +155,6 @@
     <ClInclude Include="XHeaderCtrl.h" />
     <ClInclude Include="XListCtrl.h" />
     <ClInclude Include="XListView.h" />
-    <ClInclude Include="XListViewDoc.h" />
-    <ClInclude Include="XListViewView.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="checkboxes.bmp" />

@@ -28,3 +28,6 @@ typedef UCHAR FLAG;
     publicKeyToken='6595b64144ccf1df'           \
     language='*'                                \" \
 ")
+
+#include "..\..\..\vendors\xlistview\XListView.h"
+

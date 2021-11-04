@@ -417,7 +417,7 @@ void CXHeaderCtrl::OnPaint()
 
     if (m_bDoubleBuffer)
     {
-        CMemDC MemDC(&dc);
+        xlistview::CMemDC MemDC(&dc);
         DrawCtrl(&MemDC);
     }
     else
