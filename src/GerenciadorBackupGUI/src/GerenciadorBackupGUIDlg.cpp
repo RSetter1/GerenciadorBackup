@@ -2,37 +2,48 @@
 #include "GerenciadorBackupGUI.hpp"
 #include "GerenciadorBackupGUIDlg.hpp"
 #include "AboutDlg.hpp"
+#include "Macros.h"
 
 using _base = CDialogEx; // Usado apenas quando não dá pra usar __super.
 
 #ifdef _DEBUG
-#define new DEBUG_NEW
+    #define new DEBUG_NEW
 #endif
 
 CGerenciadorBackupGUIDlg::CGerenciadorBackupGUIDlg(CWnd* pParent /*=nullptr*/)
     : _base            (CGerenciadorBackupGUIDlg::IDD, pParent)
     , flagQuemAtualizar(EQuemAtualizar::eDestino              )
 {
-    m_hIcon       = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+    m_hIcon             = AfxGetApp()->LoadIcon(IDR_MAINFRAME   );
 
-    m_hIconAdd    = AfxGetApp()->LoadIcon(IDI_ADD      );
-    m_hIconEdit   = AfxGetApp()->LoadIcon(IDI_EDIT     );
-    m_hIconRemove = AfxGetApp()->LoadIcon(IDI_REMOVE   );
+    m_hIconAdd          = AfxGetApp()->LoadIcon(IDI_ADD         );
+    m_hIconEdit         = AfxGetApp()->LoadIcon(IDI_EDIT        );
+    m_hIconRemove       = AfxGetApp()->LoadIcon(IDI_REMOVE      );
+    m_hIconSearchFolder = AfxGetApp()->LoadIcon(IDI_SEARCHFOLDER);
 }
 
 void CGerenciadorBackupGUIDlg::DoDataExchange(CDataExchange* pDX)
 {
     __super::DoDataExchange(pDX);
 
-    DDX_Control(pDX, IDC_EDT_PASTA_ORIGEM , m_edtPastaOrigem  );
-    DDX_Control(pDX, IDC_EDT_PASTA_DESTINO, m_edtPastaDestino );
-    DDX_Control(pDX, IDC_BTN_EFETUARBKP   , m_btnEfetuarBackup);
-    DDX_Control(pDX, IDC_BTN_QUEMATUALIZAR, m_btnQuemAtualizar);
-    DDX_Control(pDX, IDC_LIST_ORIGEM      , m_listOrigem      );
-    DDX_Control(pDX, IDC_LIST_DESTINO     , m_listDestino     );
-    DDX_Control(pDX, IDC_BTN_ADDORIGEM    , m_btnAddOrigem    );
-    DDX_Control(pDX, IDC_BTN_CHANGEORIGEM , m_btnChangeOrigem );
-    DDX_Control(pDX, IDC_BTN_REMOVEORIGEM , m_btnRemoveOrigem );
+    DDX_Control(pDX, IDC_EDT_PASTA_ORIGEM     , m_edtPastaOrigem        );
+    DDX_Control(pDX, IDC_EDT_PASTA_DESTINO    , m_edtPastaDestino       );
+    DDX_Control(pDX, IDC_BTN_EFETUARBKP       , m_btnEfetuarBackup      );
+    DDX_Control(pDX, IDC_BTN_QUEMATUALIZAR    , m_btnQuemAtualizar      );
+
+    DDX_Control(pDX, IDC_LIST_ORIGEM          , m_listOrigem            );
+    DDX_Control(pDX, IDC_EDT_ORIGEM           , m_edtDiretorioOrigem    );
+    DDX_Control(pDX, IDC_BTN_FOLDERVIEWORIGEM , m_btnSearchFolderOrigem );
+    DDX_Control(pDX, IDC_BTN_ADDORIGEM        , m_btnAddOrigem          );
+    DDX_Control(pDX, IDC_BTN_CHANGEORIGEM     , m_btnChangeOrigem       );
+    DDX_Control(pDX, IDC_BTN_REMOVEORIGEM     , m_btnRemoveOrigem       );
+
+    DDX_Control(pDX, IDC_LIST_DESTINO         , m_listDestino           );
+    DDX_Control(pDX, IDC_EDT_DESTINO          , m_edtDiretorioDestino   );
+    DDX_Control(pDX, IDC_BTN_FOLDERVIEWDESTINO, m_btnSearchFolderDestino);
+    DDX_Control(pDX, IDC_BTN_ADDDESTINO       , m_btnAddDestino         );
+    DDX_Control(pDX, IDC_BTN_CHANGEDESTINO    , m_btnChangeDestino      );
+    DDX_Control(pDX, IDC_BTN_REMOVEDESTINO    , m_btnRemoveDestino      );
 }
 
 BEGIN_MESSAGE_MAP(CGerenciadorBackupGUIDlg, _base)
@@ -74,22 +85,7 @@ BOOL CGerenciadorBackupGUIDlg::OnInitDialog()
     m_btnEfetuarBackup.SetDirOrigem (m_edtPastaOrigem .GetDiretorio());
     m_btnEfetuarBackup.SetDirDestino(m_edtPastaDestino.GetDiretorio());
 
-    m_listOrigem.InsertColumn(0, L"Page");
-    m_listOrigem.SetColumnWidth(0, 60);
-
-    m_listOrigem.InsertColumn(1, L"Last Modified");
-    m_listOrigem.SetColumnWidth(1, 80);
-
-    m_listOrigem.InsertColumn(2, L"Prioirty");
-    m_listOrigem.SetColumnWidth(2, 50);
-
-    m_listOrigem.SendMessage(LVM_SETEXTENDEDLISTVIEWSTYLE, 0, LVS_EX_FULLROWSELECT);
-
-    m_listOrigem.InsertItem(0, L"Teste");
-
-    m_btnAddOrigem   .SetIcon(m_hIconAdd   );
-    m_btnChangeOrigem.SetIcon(m_hIconEdit  );
-    m_btnRemoveOrigem.SetIcon(m_hIconRemove);
+    InicializaControlesLista();
 
     return TRUE;
 }
@@ -149,4 +145,11 @@ void CGerenciadorBackupGUIDlg::OnBnClickedBtnQuemAtualizar()
             m_btnQuemAtualizar.SetWindowText(TEXT("<----"));
             break;
     }
+}
+
+void CGerenciadorBackupGUIDlg::InicializaControlesLista()
+{
+    INICIALIZA_CONTROLES_LISTA(Origem);
+
+    INICIALIZA_CONTROLES_LISTA(Destino);
 }

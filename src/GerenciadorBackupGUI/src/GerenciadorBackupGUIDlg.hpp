@@ -34,22 +34,29 @@ private: // controles
 
 
 
-    CListCtrl m_listOrigem ;
-    CListCtrl m_listDestino;
+    CListCtrl m_listOrigem           ;
+    CEdit     m_edtDiretorioOrigem   ;
+    CButton   m_btnAddOrigem         ;
+    CButton   m_btnChangeOrigem      ;
+    CButton   m_btnRemoveOrigem      ;
+    CButton   m_btnSearchFolderOrigem;
 
-    CButton m_btnAddOrigem   ;
-    CButton m_btnChangeOrigem;
-    CButton m_btnRemoveOrigem;
-
-
+    CListCtrl m_listDestino          ;
+    CEdit    m_edtDiretorioDestino   ;
+    CButton  m_btnAddDestino         ;
+    CButton  m_btnChangeDestino      ;
+    CButton  m_btnRemoveDestino      ;
+    CButton  m_btnSearchFolderDestino;
 
 private: // funções diversas
+    void InicializaControlesLista();
 
 private: // membros
     HICON          m_hIcon          ;
     EQuemAtualizar flagQuemAtualizar;
 
-    HICON          m_hIconAdd       ;
-    HICON          m_hIconEdit      ;
-    HICON          m_hIconRemove    ;
+    HICON          m_hIconSearchFolder;
+    HICON          m_hIconAdd         ;
+    HICON          m_hIconEdit        ;
+    HICON          m_hIconRemove      ;
 };

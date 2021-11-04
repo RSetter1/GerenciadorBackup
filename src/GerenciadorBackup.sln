@@ -6,6 +6,13 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Main", "Main\Main.vcxproj", "{4AFF4524-91AF-4264-9485-8D43D5BA4592}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GerenciadorBackupGUI", "GerenciadorBackupGUI\GerenciadorBackupGUI.vcxproj", "{CFC5ABFC-D222-48F3-8E68-3952DCFCB951}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1236BEFF-F437-4ECD-B237-2153B94097CB} = {1236BEFF-F437-4ECD-B237-2153B94097CB}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vendors", "Vendors", "{C1F61214-0FE8-4CF7-ACC8-A572304D9F83}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XListView", "..\vendors\xlistview\XListView.vcxproj", "{1236BEFF-F437-4ECD-B237-2153B94097CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,9 +38,18 @@ Global
 		{CFC5ABFC-D222-48F3-8E68-3952DCFCB951}.Release|x64.Build.0 = Release|x64
 		{CFC5ABFC-D222-48F3-8E68-3952DCFCB951}.Release|x86.ActiveCfg = Release|Win32
 		{CFC5ABFC-D222-48F3-8E68-3952DCFCB951}.Release|x86.Build.0 = Release|Win32
+		{1236BEFF-F437-4ECD-B237-2153B94097CB}.Debug|x64.ActiveCfg = Debug|Win32
+		{1236BEFF-F437-4ECD-B237-2153B94097CB}.Debug|x86.ActiveCfg = Debug|Win32
+		{1236BEFF-F437-4ECD-B237-2153B94097CB}.Debug|x86.Build.0 = Debug|Win32
+		{1236BEFF-F437-4ECD-B237-2153B94097CB}.Release|x64.ActiveCfg = Release|Win32
+		{1236BEFF-F437-4ECD-B237-2153B94097CB}.Release|x86.ActiveCfg = Release|Win32
+		{1236BEFF-F437-4ECD-B237-2153B94097CB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1236BEFF-F437-4ECD-B237-2153B94097CB} = {C1F61214-0FE8-4CF7-ACC8-A572304D9F83}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4FF3C51C-70F7-4766-8A1A-0C59AF5EC945}
